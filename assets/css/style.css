@@ -1,0 +1,76 @@
+body{
+	background-image: url(../../assets/images/background.jpg);
+	background-repeat: no-repeat;
+	background-size: cover;
+}
+
+#obie{
+	background-image: url(../../assets/images/obiwan.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+	margin-right: 10px;
+}
+
+#luke{
+	background-image: url(../../assets/images/luke.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+	margin-right: 10px;
+}
+
+#yoda{
+	background-image: url(../../assets/images/yoda.png);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+	margin-right: 10px;
+}
+
+#darth{
+	background-image: url(../../assets/images/darth.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+}
+#yourchar{
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+}
+
+#youropp{
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+}
+
+#opp1{
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+	margin-right: 10px;
+}
+
+#opp2{
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+	margin-right: 10px;
+}
+
+#opp3{
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 240px;
+}
+
+h2{
+	color: white;
+}
