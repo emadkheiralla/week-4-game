@@ -19,23 +19,28 @@
 		</div>
 		<div class="row">
 			<h2>Choose a character!</h2>
-			<div class="col-md-3" id="luke">
+			<div class="col-md-3 char" id="luke">
 		  	</div>
-			<div class="col-md-3" id="obie">
+			<div class="col-md-3 char" id="obie">
 			</div>
-			<div class="col-md-3" id="yoda">
+			<div class="col-md-3 char" id="yoda">
 			</div>
-			<div class="col-md-3" id="darth">
+			<div class="col-md-3 char" id="darth">
 			</div>
 		</div>
 		<div class="row">
-			<div class="col-md-6">
+			<div class="col-md-5">
 				<h2 id="">Your character:</h2>
 				<div id="yourchar"></div>
+				<p>You attacked your opponent for <span>blank</span> damage points!</p>
 			</div>
-			<div class="col-md-6">
+			<div class="col-md-2">
+				<button class="btn btn-danger btn-lg"><span class="glyphicon glyphicon-fire"></span> Attack</button>
+			</div>
+			<div class="col-md-5">
 				<h2 id="">Your opponent:</h2>
 				<div id="youropp"></div>
+				<p>You were attacked back for <span>blank</span> damage points!</p>
 			</div>
 		</div>
 		<div class="row">
@@ -47,10 +52,8 @@
 			<div class="col-md-4" id="opp3">
 			</div>
 		</div>
-		<div class="row">
-			<p>You attacked your opponent for <span>blank</span> damage points!</p>
-			<p>You were attacked back for <span>blank</span> damage points!</p>
-		</div>
 	</div>
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+	<script type="text/javascript" src="assets/js/game.js"></script>
 </body>
 </html>

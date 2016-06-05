@@ -9,7 +9,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
-	margin-right: 10px;
+	margin: 15px;
 }
 
 #luke{
@@ -17,7 +17,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
-	margin-right: 10px;
+	margin: 15px;
 }
 
 #yoda{
@@ -25,7 +25,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
-	margin-right: 10px;
+	margin: 15px;
 }
 
 #darth{
@@ -33,17 +33,14 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
+	margin: 15px;
 }
 #yourchar{
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
 }
 
 #youropp{
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
 }
@@ -53,7 +50,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
-	margin-right: 10px;
+	margin: 10px;
 }
 
 #opp2{
@@ -61,7 +58,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
-	margin-right: 10px;
+	margin: 10px;
 }
 
 #opp3{
@@ -69,8 +66,30 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 240px;
+	margin: 10px;
+}
+
+h1{
+	color: #001f33;
+	text-shadow: 2px 2px #0099ff;
+	text-align: center;
 }
 
 h2{
+	color: #0099ff;
+	text-shadow: 2px 2px #001f33;
+}
+
+p{
+	color: red;
+	padding-top: 10px;
+}
+
+span{
 	color: white;
+}
+
+button{
+	margin-top: 150px;
+	margin-left: -70px;
 }
