@@ -158,7 +158,7 @@ $(document).ready(function () {
 			$('#youattackedfor').html(luke.attackPower);
 			if(luke.healthMeter <= 0 && obie.healthMeter > 0){
 				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-				$( "#opp1" ).hide( "explode", {pieces: 16}, 2000 );
+				$( "#opp2" ).hide( "explode", {pieces: 16}, 2000 );
 			}else if(luke.healthMeter > obie.healthMeter && obie.healthMeter <= 0){
 				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
 			}
