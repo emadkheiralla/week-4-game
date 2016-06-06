@@ -4,7 +4,40 @@ body{
 	background-size: cover;
 }
 
+.obiecontainer{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+.lukecontainer{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+.yodacontainer{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+.darthcontainer{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
 #obie{
+	position: absolute;
 	background-image: url(../../assets/images/obiwan.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
@@ -14,6 +47,7 @@ body{
 }
 
 #luke{
+	position: absolute;
 	background-image: url(../../assets/images/luke.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
@@ -23,6 +57,7 @@ body{
 }
 
 #yoda{
+	position: absolute;
 	background-image: url(../../assets/images/yoda.png);
 	background-repeat: no-repeat;
 	width: 160px;
@@ -32,6 +67,7 @@ body{
 }
 
 #darth{
+	position: absolute;
 	background-image: url(../../assets/images/darth.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
@@ -42,12 +78,12 @@ body{
 
 .health{
 	position: relative;
-	top: 140px;
+	top: 150px;
 	height: 50px;
 	width: 100%;
 	padding: 0 auto;
 	background-color: black;
-	opacity: .6;
+	opacity: .5;
 	color: white;
 	text-align: center;
 	
@@ -77,13 +113,60 @@ p.apwords{
 	height: 240px;
 }
 
-.remainingopps{
+#opp1container{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+#opp2container{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+#opp3container{
+	position: relative;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+#opp1{
+	position: absolute;
 	background-image: url(../../assets/images/temp.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 220px;
-	margin: 10px;
+	margin: 15px;
+	padding: 0;
 }
+
+#opp2{
+	position: absolute;
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
+#opp3{
+	position: absolute;
+	background-image: url(../../assets/images/temp.jpg);
+	background-repeat: no-repeat;
+	width: 160px;
+	height: 220px;
+	margin: 15px;
+	padding: 0;
+}
+
 
 h1{
 	color: #001f33;
@@ -98,12 +181,16 @@ h2{
 
 p#attacked{
 	color: red;
-	padding-top: 10px;
+	padding-top: 20px;
+	font-size: 18px;
+	font-weight: bolder;
 }
 
 p#attacks{
 	color: green;
-	padding-top: 10px;
+	padding-top: 20px;
+	font-size: 18px;
+	font-weight: bolder;
 }
 
 span{
