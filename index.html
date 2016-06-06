@@ -7,10 +7,11 @@
 	<meta name="author" content="Emad Kheiralla">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<title>Star Wars RPG</title>
-	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
-	<link href='https://fonts.googleapis.com/css?family=Oswald' rel='stylesheet' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Oswald' type='text/css'>
+	<link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+	<link rel="stylesheet" href="assets/css/style.css" type="text/css" >
 </head>
 <body>
 	<div class="container">
@@ -20,40 +21,58 @@
 		<div class="row">
 			<h2>Choose a character!</h2>
 			<div class="col-md-3 char" id="luke">
+				<div class="health">
+					<p class="apwords">Attack Power</p>
+					<p class="apnum" id="lukeapnum">100</p>					
+				</div>
 		  	</div>
 			<div class="col-md-3 char" id="obie">
+				<div class="health">
+					<p class="apwords">Attack Power</p>
+					<p class="apnum" id="obieapnum">120</p>					
+				</div>
 			</div>
 			<div class="col-md-3 char" id="yoda">
+				<div class="health">
+					<p class="apwords">Attack Power</p>
+					<p class="apnum" id="yodaapnum">150</p>					
+				</div>
 			</div>
 			<div class="col-md-3 char" id="darth">
+				<div class="health">
+					<p class="apwords">Attack Power</p>
+					<p class="apnum" id="darthapnum">180</p>
+				</div>
 			</div>
 		</div>
 		<div class="row">
 			<div class="col-md-5">
-				<h2 id="">Your character:</h2>
+				<h2 id="character">Your character:</h2>
 				<div id="yourchar"></div>
-				<p>You attacked your opponent for <span id="youattackedfor">blank</span> damage points!</p>
+				<p id="attacks">You attacked your opponent for <span id="youattackedfor">blank</span> damage points!</p>
 			</div>
 			<div class="col-md-2">
+				<p id="youlost"></p>
+				<p id="youwon"></p>
 				<button class="btn btn-danger btn-lg" id="attack"><span class="glyphicon glyphicon-fire"></span> Attack</button>
 			</div>
 			<div class="col-md-5">
-				<h2 id="">Your opponent:</h2>
+				<h2 id="opponent">Your opponent:</h2>
 				<div id="youropp"></div>
-				<p>You were attacked back for <span id="attackedyoufor">blank</span> damage points!</p>
+				<p id="attacked">You were attacked back for <span id="attackedyoufor">blank</span> damage points!</p>
 			</div>
 		</div>
 		<div class="row">
 			<h2>Choose an opponent!</h2>
-			<div class="col-md-4" id="opp1">
+			<div class="col-md-4 remainingopps">
 		  	</div>
-			<div class="col-md-4" id="opp2">
+			<div class="col-md-4 remainingopps">
 			</div>
-			<div class="col-md-4" id="opp3">
+			<div class="col-md-4 remainingopps">
 			</div>
 		</div>
 	</div>
-	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+	<script src="https://code.jquery.com/jquery-2.2.3.js"></script>
 	<script type="text/javascript" src="assets/js/game.js"></script>
 </body>
 </html>

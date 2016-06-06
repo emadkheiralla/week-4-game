@@ -8,33 +8,65 @@ body{
 	background-image: url(../../assets/images/obiwan.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
-	height: 240px;
+	height: 220px;
 	margin: 15px;
+	padding: 0;
 }
 
 #luke{
 	background-image: url(../../assets/images/luke.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
-	height: 240px;
+	height: 220px;
 	margin: 15px;
+	padding: 0;
 }
 
 #yoda{
 	background-image: url(../../assets/images/yoda.png);
 	background-repeat: no-repeat;
 	width: 160px;
-	height: 240px;
+	height: 220px;
 	margin: 15px;
+	padding: 0;
 }
 
 #darth{
 	background-image: url(../../assets/images/darth.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
-	height: 240px;
+	height: 220px;
 	margin: 15px;
+	padding: 0;
 }
+
+.health{
+	position: relative;
+	top: 140px;
+	height: 50px;
+	width: 100%;
+	padding: 0 auto;
+	background-color: black;
+	opacity: .6;
+	color: white;
+	text-align: center;
+	
+}
+
+p.apnum{
+	color: blue;
+	margin: 0;
+	font-weight: bold;
+	font-size: 20px;
+	
+}
+p.apwords{
+	font-weight: bold;
+	font-size: 14px;
+	margin: 0;
+}
+
+
 #yourchar{
 	width: 160px;
 	height: 240px;
@@ -45,27 +77,11 @@ body{
 	height: 240px;
 }
 
-#opp1{
+.remainingopps{
 	background-image: url(../../assets/images/temp.jpg);
 	background-repeat: no-repeat;
 	width: 160px;
-	height: 240px;
-	margin: 10px;
-}
-
-#opp2{
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
-	width: 160px;
-	height: 240px;
-	margin: 10px;
-}
-
-#opp3{
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
-	width: 160px;
-	height: 240px;
+	height: 220px;
 	margin: 10px;
 }
 
@@ -80,8 +96,13 @@ h2{
 	text-shadow: 2px 2px #001f33;
 }
 
-p{
+p#attacked{
 	color: red;
+	padding-top: 10px;
+}
+
+p#attacks{
+	color: green;
 	padding-top: 10px;
 }
 
@@ -90,6 +111,18 @@ span{
 }
 
 button{
-	margin-top: 150px;
+	margin-top: 20px;
 	margin-left: -70px;
+}
+
+#youlost{
+	color: red;
+	margin-top: 130px;
+	margin-left: -120px;
+}
+
+#youwon{
+	color: green;
+	margin-top: 10px;
+	margin-left: -90px;
 }
