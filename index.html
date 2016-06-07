@@ -17,7 +17,7 @@
 		<div class="row">
 		  	<h1>Welcome to Emad's Starwars RPG</h1>
 		</div>
-		<div class="row">
+		<div class="row" id="firstrow">
 			<h2 id="choose">Choose a character!</h2>
 			<div class="col-md-3 lukecontainer">
 				<div class="char" id="luke">
@@ -59,8 +59,9 @@
 				<p id="attacks">You attacked your opponent for <span id="youattackedfor">blank</span> damage points!</p>
 			</div>
 			<div class="col-md-4">
-				<button class="btn btn-danger btn-lg" id="attack"><span class="glyphicon glyphicon-fire"></span> Attack</button>
+				<button class="btn btn-danger btn-lg" id="attack"><span class="glyphicon glyphicon-fire"></span>   Attack   </button>
 				<p id="youwonlost"></p>
+				<button class="btn btn-info btn-lg" id="restart"><span class="glyphicon glyphicon-refresh"></span>Play Again</button>
 			</div>
 			<div class="col-md-4">
 				<h2 id="opponent">Your opponent:</h2>
@@ -68,6 +69,14 @@
 				<p id="attacked">You were attacked back for <span id="attackedyoufor">blank</span> damage points!</p>
 			</div>
 		</div>
+
+		<div class="row">
+			<div class="col-md-12">
+				<h2 id='defarea'>Defeated Area</h2>
+				<hr>
+			</div>
+		</div>
+
 		<div class="row">
 			<div class="col-md-4 opp1container">
 				<div class="opp1">

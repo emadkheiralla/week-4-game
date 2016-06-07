@@ -138,37 +138,6 @@ p.apwords{
 	padding: 0;
 }
 
-.opp1{
-	position: absolute;
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
-	width: 160px;
-	height: 220px;
-	margin: 15px;
-	padding: 0;
-}
-
-.opp2{
-	position: absolute;
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
-	width: 160px;
-	height: 220px;
-	margin: 15px;
-	padding: 0;
-}
-
-.opp3{
-	position: absolute;
-	background-image: url(../../assets/images/temp.jpg);
-	background-repeat: no-repeat;
-	width: 160px;
-	height: 220px;
-	margin: 15px;
-	padding: 0;
-}
-
-
 h1{
 	color: #001f33;
 	text-shadow: 2px 2px #0099ff;
@@ -198,7 +167,7 @@ span{
 	color: white;
 }
 
-button{
+#attack{
 	margin-top: 150px;
 	margin-left: 0 auto;
 	margin-right: 0 auto;
@@ -208,4 +177,8 @@ button{
 	color: white;
 	font-size: 25px;
 	margin: 0 auto;
+}
+
+#defarea{
+	text-align: center;
 }
