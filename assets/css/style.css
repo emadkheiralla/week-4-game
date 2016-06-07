@@ -138,7 +138,7 @@ p.apwords{
 	padding: 0;
 }
 
-#opp1{
+.opp1{
 	position: absolute;
 	background-image: url(../../assets/images/temp.jpg);
 	background-repeat: no-repeat;
@@ -148,7 +148,7 @@ p.apwords{
 	padding: 0;
 }
 
-#opp2{
+.opp2{
 	position: absolute;
 	background-image: url(../../assets/images/temp.jpg);
 	background-repeat: no-repeat;
@@ -158,7 +158,7 @@ p.apwords{
 	padding: 0;
 }
 
-#opp3{
+.opp3{
 	position: absolute;
 	background-image: url(../../assets/images/temp.jpg);
 	background-repeat: no-repeat;
@@ -199,18 +199,13 @@ span{
 }
 
 button{
-	margin-top: 20px;
-	margin-left: -70px;
+	margin-top: 150px;
+	margin-left: 0 auto;
+	margin-right: 0 auto;
 }
 
-#youlost{
-	color: red;
-	margin-top: 130px;
-	margin-left: -120px;
-}
-
-#youwon{
-	color: green;
-	margin-top: 10px;
-	margin-left: -90px;
+#youwonlost{
+	color: white;
+	font-size: 25px;
+	margin: 0 auto;
 }

@@ -2,333 +2,260 @@ $(document).ready(function () {
 
 	var isFirstChosen = false;
 	var isSecondChosen = false;
+	var remOpponents = 3;
 
-	var firstChosen;
-	var secondChosen;
 
-	var luke = {
-		'healthMeter': 100,
+	var firstChosen = {
+		'name': "",
+		'healthMeter': 0,
 		'attackPower': 0,
-		'attackFactor': 5
-	}
-	var obie = {
-		'healthMeter': 120,
-		'attackPower': 0,
-		'attackFactor': 8
-	}
-	var yoda = {
-		'healthMeter': 150,
-		'attackPower': 0,
-		'attackFactor': 15
-	}
-	var darth = {
-		'healthMeter': 180,
-		'attackPower': 0,
-		'attackFactor': 25
+		'attackFactor': 0
 	}
 
-	
+	var secondChosen = {
+		'name': "",
+		'healthMeter': 0,
+		'attackPower': 0,
+		'attackFactor': 0
+	}	
 		   
 	$('#character').hide();
 	$('#opponent').hide();
 	$('#attacks').hide();
 	$('#attacked').hide();
+	$('.opp1').hide();
+	$('.opp2').hide();
+	$('.opp3').hide();
+
+	
+	function tryAgain(){
+
+		$('#youwonlost').html("You lost...Page is now reloading!");
+		setTimeout(function() { location.reload() },2000);
+	}
+
+	function nextLevel(){
+		remOpponents--;
+		isSecondChosen = false;
+		$('#youwonlost').html("You destroyed your opponent...Please choose next opponent" );
+		if(firstChosen.attackPower <= 0 && secondChosen.attackPower > 0){
+			tryAgain();
+		}else if(firstChosen.attackPower > 0 && secondChosen.attackPower > 0){
+			fight()
+		}
+	}
+
+	function youWon(){
+
+		$('#youwonlost').html("You won the game!");
+	}
+
+	function fight(){
+		
+		firstChosen.attackPower += firstChosen.attackFactor;
+		firstChosen.healthMeter -= secondChosen.attackFactor;
+		secondChosen.healthMeter -= firstChosen.attackPower;
+		$('#attacks').show();
+		$('#attacked').show();
+		$('#attackedyoufor').html(secondChosen.attackFactor);
+		$('#youattackedfor').html(firstChosen.attackPower);
+
+		if(firstChosen.name == 'luke' && secondChosen.name == 'obie'){
+			$('#lukeapnum').html(firstChosen.healthMeter);
+			$('#obieapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'luke' && secondChosen.name == 'yoda'){
+			$('#lukeapnum').html(firstChosen.healthMeter);
+			$('#yodaapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'luke' && secondChosen.name == 'darth'){
+			$('#lukeapnum').html(firstChosen.healthMeter);
+			$('#darthapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'obie' && secondChosen.name == 'luke'){
+			$('#obieapnum').html(firstChosen.healthMeter);
+			$('#lukeapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'obie' && secondChosen.name == 'yoda'){
+			$('#obieapnum').html(firstChosen.healthMeter);
+			$('#yodaapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'obie' && secondChosen.name == 'darth'){
+			$('#obieapnum').html(firstChosen.healthMeter);
+			$('#darthapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'yoda' && secondChosen.name == 'luke'){
+			$('#yodaapnum').html(firstChosen.healthMeter);
+			$('#lukeapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'yoda' && secondChosen.name == 'obie'){
+			$('#yodaapnum').html(firstChosen.healthMeter);
+			$('#obieapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'yoda' && secondChosen.name == 'darth'){
+			$('#yodaapnum').html(firstChosen.healthMeter);
+			$('#darthapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'darth' && secondChosen.name == 'luke'){
+			$('#darthapnum').html(firstChosen.healthMeter);
+			$('#lukeapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'darth' && secondChosen.name == 'obie'){
+			$('#darthapnum').html(firstChosen.healthMeter);
+			$('#obieapnum').html(secondChosen.healthMeter);
+		}else if(firstChosen.name == 'darth' && secondChosen.name == 'yoda'){
+			$('#darthapnum').html(firstChosen.healthMeter);
+			$('#yodaapnum').html(secondChosen.healthMeter);
+		}
+
+		if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'luke'){
+			$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
+			tryAgain();
+		}else if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'obie'){
+			$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
+			tryAgain();
+		}else if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'yoda'){
+			$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
+			tryAgain();
+		}else if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'darth'){
+			$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
+			tryAgain();
+		}else if(firstChosen.healthMeter > secondChosen.healthMeter && secondChosen.healthMeter <= 0 && secondChosen.name == 'luke'){
+			$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
+			nextLevel();
+		}else if(firstChosen.healthMeter > secondChosen.healthMeter && secondChosen.healthMeter <= 0 && secondChosen.name == 'obie'){
+			$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
+			nextLevel();
+		}else if(firstChosen.healthMeter > secondChosen.healthMeter && secondChosen.healthMeter <= 0 && secondChosen.name == 'yoda'){
+			$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
+			nextLevel();
+		}else if(firstChosen.healthMeter > secondChosen.healthMeter && secondChosen.healthMeter <= 0 && secondChosen.name == 'darth'){
+			$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
+			nextLevel();
+		}else if(firstChosen.healthMeter > 0 && remOpponents == 0){
+			youWon();
+		}
+	}
 	
 	$('.char').on('click', function () {
 	        
 		if(!isFirstChosen && !isSecondChosen && $(this).attr('id')  == 'darth'){
 	       	$('#darth').animate({left: '-570px', top: '317px'});
 	       	$('#character').show(500);
-	       	firstChosen = 'darth';
+	       	firstChosen.name = 'darth';
+	       	firstChosen.healthMeter = 180;
+	       	firstChosen.attackFactor = 25;
 	       	isFirstChosen = true;
 	    }else if(!isFirstChosen && !isSecondChosen && $(this).attr('id')  == 'yoda'){
 	       	$('#yoda').animate({left: '-380px', top: '317px'});
 	       	$('.char:not(#luke, #obie, #yoda)').animate({left: '-195px'});
 	       	$('#character').show(500);
-	       	firstChosen = 'yoda';
+	       	firstChosen.name = 'yoda';
+	       	firstChosen.healthMeter = 150;
+	       	firstChosen.attackFactor = 15;
 	       	isFirstChosen = true;
 	    }else if(!isFirstChosen && !isSecondChosen && $(this).attr('id')  == 'obie'){
 	       	$('#obie').animate({left: '-190px', top: '317px'});
 	       	$('.char:not(#obie, #luke)').animate({left: '-195px'});
 	       	$('#character').show(500);
-	       	firstChosen = 'obie';
+	       	firstChosen.name = 'obie';
+	       	firstChosen.healthMeter = 120;
+	       	firstChosen.attackFactor = 8;
 	       	isFirstChosen = true;
 	    }else if(!isFirstChosen && !isSecondChosen && $(this).attr('id')  == 'luke'){
 	       	$('#luke').animate({top: '317px'});
 	       	$('.char:not(#luke)').animate({left: '-195px'});
 	       	$('#character').show(500);
-	       	firstChosen = 'luke';
+	       	firstChosen.name = 'luke';
+	       	firstChosen.healthMeter = 100;
+	       	firstChosen.attackFactor = 5;
 	       	isFirstChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'luke' && $(this).attr('id')  == 'darth'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'luke' && $(this).attr('id')  == 'darth'){
+	    	$('#darth').animate({left: '205px', top: '317px'});
+	    	$('#opponent').show(500);
+	       	secondChosen.name = 'darth';
+	       	secondChosen.healthMeter = 180;
+	       	secondChosen.attackFactor = 25;
+	       	isSecondChosen = true;
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'obie' && $(this).attr('id')  == 'darth'){
 	    	$('#darth').animate({left: '115px', top: '317px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'darth';
+	       	secondChosen.name = 'darth';
+	       	secondChosen.healthMeter = 180;
+	       	secondChosen.attackFactor = 25;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'obie' && $(this).attr('id')  == 'darth'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name === 'yoda' && $(this).attr('id')  == 'darth'){
 	    	$('#darth').animate({left: '115px', top: '317px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'darth';
+	       	secondChosen.name = 'darth';
+	       	secondChosen.healthMeter = 180;
+	       	secondChosen.attackFactor = 25;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen === 'yoda' && $(this).attr('id')  == 'darth'){
-	    	$('#darth').animate({left: '115px', top: '317px'});
-	    	$('#opponent').show(500);
-	       	secondChosen = 'darth';
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'luke' && $(this).attr('id')  == 'yoda'){
+	    	$('#yoda').animate({left: '400px', top: '317px'});
+	       	$('#darth').animate({left: '-395px'});
+	       	$('#opponent').show(500);
+	       	secondChosen.name = 'yoda';
+	       	secondChosen.healthMeter = 150;
+	       	secondChosen.attackFactor = 15;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'luke' && $(this).attr('id')  == 'yoda'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'obie' && $(this).attr('id')  == 'yoda'){
 	    	$('#yoda').animate({left: '305px', top: '317px'});
 	       	$('#darth').animate({left: '-395px'});
 	       	$('#opponent').show(500);
-	       	secondChosen = 'yoda';
+	       	secondChosen.name = 'yoda';
+	       	secondChosen.healthMeter = 150;
+	       	secondChosen.attackFactor = 15;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'obie' && $(this).attr('id')  == 'yoda'){
-	    	$('#yoda').animate({left: '305px', top: '317px'});
-	       	$('#darth').animate({left: '-395px'});
-	       	$('#opponent').show(500);
-	       	secondChosen = 'yoda';
-	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'darth' && $(this).attr('id')  == 'yoda'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'darth' && $(this).attr('id')  == 'yoda'){
 	    	$('#yoda').animate({left: '305px', top: '317px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'yoda';
+	       	secondChosen.name = 'yoda';
+	       	secondChosen.healthMeter = 150;
+	       	secondChosen.attackFactor = 15;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'luke' && $(this).attr('id')  == 'obie'){
-	    	$('#obie').animate({left: '495px', top: '317px'});
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'luke' && $(this).attr('id')  == 'obie'){
+	    	$('#obie').animate({left: '580px', top: '317px'});
 	    	$('.char:not(#obie, #luke)').animate({left: '-390px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'obie';
+	       	secondChosen.name = 'obie';
+	       	secondChosen.healthMeter = 120;
+	       	secondChosen.attackFactor = 8;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'yoda' && $(this).attr('id')  == 'obie'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'yoda' && $(this).attr('id')  == 'obie'){
 	    	$('#obie').animate({left: '495px', top: '317px'});
 	    	$('#darth').animate({left: '-390px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'obie';
+	       	secondChosen.name = 'obie';
+	       	secondChosen.healthMeter = 120;
+	       	secondChosen.attackFactor = 8;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'darth' && $(this).attr('id')  == 'obie'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'darth' && $(this).attr('id')  == 'obie'){
 	    	$('#obie').animate({left: '495px', top: '317px'});
 	    	$('#yoda').animate({left: '-190px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'obie';
+	       	secondChosen.name = 'obie';
+	       	secondChosen.healthMeter = 120;
+	       	secondChosen.attackFactor = 8;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'obie' && $(this).attr('id')  == 'luke'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen,name == 'obie' && $(this).attr('id')  == 'luke'){
 	    	$('#luke').animate({left: '683px', top: '317px'});
 	    	$('.char:not(#luke, #obie)').animate({left: '-390px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'luke';
+	       	secondChosen.name = 'luke';
+	       	secondChosen.healthMeter = 100;
+	       	secondChosen.attackFactor = 5;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'yoda' && $(this).attr('id')  == 'luke'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'yoda' && $(this).attr('id')  == 'luke'){
 	    	$('#luke').animate({left: '683px', top: '317px'});
 	    	$('#obie').animate({left: '-190px'});
 	    	$('#darth').animate({left: '-390px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'luke';
+	       	secondChosen.name = 'luke';
+	       	secondChosen.healthMeter = 100;
+	       	secondChosen.attackFactor = 5;
 	       	isSecondChosen = true;
-	    }else if(isFirstChosen && !isSecondChosen && firstChosen == 'darth' && $(this).attr('id')  == 'luke'){
+	    }else if(isFirstChosen && !isSecondChosen && firstChosen.name == 'darth' && $(this).attr('id')  == 'luke'){
 	    	$('#luke').animate({left: '683px', top: '317px'});
 	    	$('#obie').animate({left: '-190px'});
 	    	$('#yoda').animate({left: '-190px'});
 	    	$('#opponent').show(500);
-	       	secondChosen = 'luke';
+	       	secondChosen.name = 'luke';
+	       	secondChosen.healthMeter = 100;
+	       	secondChosen.attackFactor = 5;
 	       	isSecondChosen = true;	       	
-	    }else if(isFirstChosen && isSecondChosen){
-	    	fight();
 	    }
 	});
-	
-	function nextLevel(){
-		$('#youwon').html("Hooray! You won!");
-		
-	}
-
-	function tryAgain(){
-		$('#youlost').html("You lost...Page is now reloading!");
-		setTimeout(function() { location.reload() },2000);
-	}
-	
-	function fight(){
-		
-		if (firstChosen == 'luke' && secondChosen == 'obie') {
-			luke.attackPower += luke.attackFactor;
-			luke.healthMeter -= obie.attackFactor;
-			obie.healthMeter -= luke.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#lukeapnum').html(luke.healthMeter);
-			$('#obieapnum').html(obie.healthMeter);
-			$('#attackedyoufor').html(obie.attackFactor);
-			$('#youattackedfor').html(luke.attackPower);
-			if(luke.healthMeter <= 0 && obie.healthMeter > 0){
-				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-				$( "#opp2" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(luke.healthMeter > obie.healthMeter && obie.healthMeter <= 0){
-				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'luke' && secondChosen == 'yoda') {
-			luke.attackPower += luke.attackFactor;
-			luke.healthMeter -= yoda.attackFactor;
-			yoda.healthMeter -= luke.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#lukeapnum').html(luke.healthMeter);
-			$('#yodaapnum').html(yoda.healthMeter);
-			$('#attackedyoufor').html(yoda.attackFactor);
-			$('#youattackedfor').html(luke.attackPower);
-			if(luke.healthMeter <= 0 && yoda.healthMeter > 0){
-				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(luke.healthMeter > yoda.healthMeter && yoda.healthMeter <= 0){
-				$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'luke' && secondChosen == 'darth') {
-			luke.attackPower += luke.attackFactor;
-			luke.healthMeter -= darth.attackFactor;
-			darth.healthMeter -= luke.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#lukeapnum').html(luke.healthMeter);
-			$('#darthapnum').html(darth.healthMeter);
-			$('#attackedyoufor').html(darth.attackFactor);
-			$('#youattackedfor').html(luke.attackPower);
-			if(luke.healthMeter <= 0 && darth.healthMeter > 0){
-				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(luke.healthMeter > darth.healthMeter && darth.healthMeter <= 0){
-				$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'obie' && secondChosen == 'luke') {
-			obie.attackPower += obie.attackFactor;
-			obie.healthMeter -= luke.attackFactor;
-			luke.healthMeter -= obie.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#obieapnum').html(obie.healthMeter);
-			$('#lukeapnum').html(luke.healthMeter);
-			$('#attackedyoufor').html(luke.attackFactor);
-			$('#youattackedfor').html(obie.attackPower);
-			if(obie.healthMeter <= 0 && luke.healthMeter > 0){
-				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(obie.healthMeter > luke.healthMeter && luke.healthMeter <= 0){
-				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'obie' && secondChosen == 'yoda') {
-			obie.attackPower += obie.attackFactor;
-			obie.healthMeter -= yoda.attackFactor;
-			yoda.healthMeter -= obie.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#obieapnum').html(obie.healthMeter);
-			$('#yodaapnum').html(yoda.healthMeter);
-			$('#attackedyoufor').html(yoda.attackFactor);
-			$('#youattackedfor').html(obie.attackPower);
-			if(obie.healthMeter <= 0 && yoda.healthMeter > 0){
-				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(obie.healthMeter > yoda.healthMeter && yoda.healthMeter <= 0){
-				$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'obie' && secondChosen == 'darth') {
-			obie.attackPower += obie.attackFactor;
-			obie.healthMeter -= darth.attackFactor;
-			darth.healthMeter -= obie.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#obieapnum').html(obie.healthMeter);
-			$('#darthapnum').html(darth.healthMeter);
-			$('#attackedyoufor').html(darth.attackFactor);
-			$('#youattackedfor').html(obie.attackPower);
-			if(obie.healthMeter <= 0 && darth.healthMeter > 0){
-				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(obie.healthMeter > darth.healthMeter && darth.healthMeter <= 0){
-				$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'yoda' && secondChosen == 'luke') {
-			yoda.attackPower += yoda.attackFactor;
-			yoda.healthMeter -= luke.attackFactor;
-			luke.healthMeter -= yoda.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#yodaapnum').html(yoda.healthMeter);
-			$('#lukeapnum').html(luke.healthMeter);
-			$('#attackedyoufor').html(luke.attackFactor);
-			$('#youattackedfor').html(yoda.attackPower);
-			if(yoda.healthMeter <= 0 && luke.healthMeter > 0){
-				$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(yoda.healthMeter > luke.healthMeter && luke.healthMeter <= 0){
-				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'yoda' && secondChosen == 'obie') {
-			yoda.attackPower += yoda.attackFactor;
-			yoda.healthMeter -= obie.attackFactor;
-			obie.healthMeter -= yoda.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#yodaapnum').html(yoda.healthMeter);
-			$('#obieapnum').html(obie.healthMeter);
-			$('#attackedyoufor').html(obie.attackFactor);
-			$('#youattackedfor').html(yoda.attackPower);
-			if(yoda.healthMeter <= 0 && obie.healthMeter > 0){
-				$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(yoda.healthMeter > obie.healthMeter && obie.healthMeter <= 0){
-				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'yoda' && secondChosen == 'darth') {
-			yoda.attackPower += yoda.attackFactor;
-			yoda.healthMeter -= darth.attackFactor;
-			darth.healthMeter -= yoda.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#yodaapnum').html(yoda.healthMeter);
-			$('#darthapnum').html(darth.healthMeter);
-			$('#attackedyoufor').html(darth.attackFactor);
-			$('#youattackedfor').text(yoda.attackPower);
-			if(yoda.healthMeter <= 0 && darth.healthMeter > 0){
-				$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(yoda.healthMeter > darth.healthMeter && darth.healthMeter <= 0){
-				$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'darth' && secondChosen == 'luke') {
-			darth.attackPower += darth.attackFactor;
-			darth.healthMeter -= luke.attackFactor;
-			luke.healthMeter -= darth.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#darthapnum').html(darth.healthMeter);
-			$('#lukeapnum').html(luke.healthMeter);
-			$('#attackedyoufor').html(luke.attackFactor);
-			$('#youattackedfor').html(darth.attackPower);
-			if(darth.healthMeter <= 0 && luke.healthMeter > 0){
-				$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(darth.healthMeter > luke.healthMeter && luke.healthMeter <= 0){
-				$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'darth' && secondChosen == 'obie') {
-			darth.attackPower += darth.attackFactor;
-			darth.healthMeter -= obie.attackFactor;
-			obie.healthMeter -= darth.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#darthapnum').html(darth.healthMeter);
-			$('#obieapnum').html(obie.healthMeter);
-			$('#attackedyoufor').html(obie.attackFactor);
-			$('#youattackedfor').html(darth.attackPower);
-			if(darth.healthMeter <= 0 && obie.healthMeter > 0){
-				$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(darth.healthMeter > obie.healthMeter && obie.healthMeter <= 0){
-				$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}else if (firstChosen == 'darth' && secondChosen == 'yoda') {
-			darth.attackPower += darth.attackFactor;
-			darth.healthMeter -= yoda.attackFactor;
-			yoda.healthMeter -= darth.attackPower;
-			$('#attacks').show();
-			$('#attacked').show();
-			$('#darthapnum').html(darth.healthMeter);
-			$('#yodaapnum').html(yoda.healthMeter);
-			$('#attackedyoufor').html(yoda.attackFactor);
-			$('#youattackedfor').html(darth.attackPower);
-			if(darth.healthMeter <= 0 && yoda.healthMeter > 0){
-				$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
-			}else if(darth.healthMeter > yoda.healthMeter && yoda.healthMeter <= 0){
-				$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
-			}
-		}
-	}
 
 	$('#attack').on('click', function () {
 		
