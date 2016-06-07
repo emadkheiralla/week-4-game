@@ -96,12 +96,16 @@ p.apnum{
 	margin: 0;
 	font-weight: bold;
 	font-size: 20px;
+    font-family: 'Oswald', sans-serif;
+
 	
 }
 p.apwords{
 	font-weight: bold;
 	font-size: 14px;
 	margin: 0;
+    font-family: 'Oswald', sans-serif;
+
 }
 
 
@@ -143,11 +147,15 @@ h1{
 	color: #001f33;
 	text-shadow: 2px 2px #0099ff;
 	text-align: center;
+    font-family: 'Oswald', sans-serif;
+
 }
 
 h2{
 	color: #0099ff;
 	text-shadow: 2px 2px #001f33;
+    font-family: 'Oswald', sans-serif;
+
 }
 
 p#attacked{
@@ -155,6 +163,8 @@ p#attacked{
 	padding-top: 20px;
 	font-size: 18px;
 	font-weight: bolder;
+    font-family: 'Oswald', sans-serif;
+
 }
 
 p#attacks{
@@ -162,6 +172,8 @@ p#attacks{
 	padding-top: 20px;
 	font-size: 18px;
 	font-weight: bolder;
+    font-family: 'Oswald', sans-serif;
+	
 }
 
 span{
