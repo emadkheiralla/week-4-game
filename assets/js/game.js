@@ -48,6 +48,7 @@ $(document).ready(function () {
 	function youWon(){
 		$('#youwonlost').show();
 		$('#youwonlost').html("You won the game!");
+		$('body').fireworks();
 	}
 
 	function fight(){
@@ -98,7 +99,9 @@ $(document).ready(function () {
 			$('#yodaapnum').html(secondChosen.healthMeter);
 		}
 
-		if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'luke'){
+		if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents == 0){
+			youWon();
+		}else if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'luke'){
 			$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
 			tryAgain();
 		}else if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'obie'){
@@ -110,29 +113,27 @@ $(document).ready(function () {
 		}else if(firstChosen.healthMeter <= 0 && secondChosen.healthMeter > 0 && firstChosen.name == 'darth'){
 			$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
 			tryAgain();
-		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents > 0 && secondChosen.name == 'luke'){
+		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents >= 0 && secondChosen.name == 'luke'){
 			$('#youwonlost').html("You destroyed your opponent...Please choose next opponent" );
 			$( "#luke" ).hide( "explode", {pieces: 16}, 2000 );
 			isSecondChosen = false;
 			nextLevel();
-		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents > 0 && secondChosen.name == 'obie'){
+		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents >= 0 && secondChosen.name == 'obie'){
 			$('#youwonlost').html("You destroyed your opponent...Please choose next opponent" );
 			$( "#obie" ).hide( "explode", {pieces: 16}, 2000 );
 			isSecondChosen = false;
 			nextLevel();
-		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents > 0 && secondChosen.name == 'yoda'){
+		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents >= 0 && secondChosen.name == 'yoda'){
 			$('#youwonlost').html("You destroyed your opponent...Please choose next opponent" );
 			$( "#yoda" ).hide( "explode", {pieces: 16}, 2000 );
 			isSecondChosen = false;
 			nextLevel();
-		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents > 0 && secondChosen.name == 'darth'){
+		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents >= 0 && secondChosen.name == 'darth'){
 			$('#youwonlost').html("You destroyed your opponent...Please choose next opponent" );
 			$( "#darth" ).hide( "explode", {pieces: 16}, 2000 );
 			isSecondChosen = false;
 			nextLevel();
-		}else if(firstChosen.healthMeter > 0 && secondChosen.healthMeter <= 0 && remOpponents == 0){
-			youWon();
-		}
+		} 
 	}
 	
 	function chooseChar(){
