@@ -1,105 +1,133 @@
 <!DOCTYPE html>
 <html>
-<head>
-	<meta charset="UTF-8">
-	<meta name="description" content="My RPG">
-	<meta name="keywords" content="HTML,CSS, JQuery">
-	<meta name="author" content="Emad Kheiralla">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
-	<title>Star Wars RPG</title>
-	<link rel="stylesheet" href="assets/css/reset.css" type="text/css">
-	<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Oswald' type='text/css'>
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
-	<link rel="stylesheet" href="assets/css/style.css" type="text/css" >
-</head>
-<body>
-	<div class="container">
-		<div class="row">
-		  	<h1>Welcome to Emad's Starwars RPG</h1>
-		</div>
-		<div class="row" id="firstrow">
-			<h2 id="choose">Choose a character!</h2>
-			<div class="col-md-3 lukecontainer">
-				<div class="char" id="luke">
-					<div class="health">
-						<p class="apwords">Attack Power</p>
-						<p class="apnum" id="lukeapnum">100</p>					
-					</div>
+	<head>
+		<meta charset="UTF-8">
+		<meta name="description" content="My RPG">
+		<meta name="keywords" content="HTML,CSS, JQuery">
+		<meta name="author" content="Emad Kheiralla">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<title>Star Wars RPG</title>
+		<link rel="stylesheet" href="assets/css/reset.css" type="text/css">
+		<link rel="stylesheet" href='https://fonts.googleapis.com/css?family=Oswald' type='text/css'>
+		<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" type="text/css">
+		<link rel="stylesheet" href="assets/css/style.css" type="text/css" >
+	</head>
+	<body>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+			  		<h1 id="toph1">Welcome to Emad's Starwars RPG</h1>
 			  	</div>
-		  	</div>
-		  	<div class="col-md-3 obiecontainer">
-				<div class="char" id="obie">
-					<div class="health">
-						<p class="apwords">Attack Power</p>
-						<p class="apnum" id="obieapnum">120</p>					
-					</div>
+			</div>
+			<div class="row">
+				<div class="col-md-12">					
+					<h2 id="choose">Choose a character!</h2>					
 				</div>
 			</div>
-			<div class="col-md-3 yodacontainer">
-				<div class="char" id="yoda">
-					<div class="health">
-						<p class="apwords">Attack Power</p>
-						<p class="apnum" id="yodaapnum">150</p>					
-					</div>
+			<div class="row" id="firstrow">
+				<div class="col-md-12" id="divchars">
+					<ul>
+						<li>
+							<div class="lukecontainer">
+								<div class="char" id="luke">
+									<div class="health">
+										<p class="apwords">Attack Power</p>
+										<p class="apnum" id="lukeapnum">100</p>					
+									</div>
+							  	</div>
+						  	</div>
+					  	</li>
+					  	<li>
+						  	<div class="obiecontainer">
+								<div class="char" id="obie">
+									<div class="health">
+										<p class="apwords">Attack Power</p>
+										<p class="apnum" id="obieapnum">120</p>					
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="yodacontainer">
+								<div class="char" id="yoda">
+									<div class="health">
+										<p class="apwords">Attack Power</p>
+										<p class="apnum" id="yodaapnum">150</p>					
+									</div>
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="darthcontainer">
+								<div class="char" id="darth">
+									<div class="health">
+										<p class="apwords">Attack Power</p>
+										<p class="apnum" id="darthapnum">180</p>
+									</div>
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
-			<div class="col-md-3 darthcontainer">
-				<div class="char" id="darth">
-					<div class="health">
-						<p class="apwords">Attack Power</p>
-						<p class="apnum" id="darthapnum">180</p>
-					</div>
+			<div class="row">
+				<div class="col-md-4">
+					<h2 id="character">Your character:</h2>
+					<div id="yourchar"></div>
+					<p id="attacks">You attacked your opponent for <span id="youattackedfor"></span> damage points!</p>
+				</div>
+				<div class="col-md-4">
+					<button class="btn btn-danger btn-lg" id="attack"><span class="glyphicon glyphicon-fire"></span>Attack</button>
+					<p id="youwonlost"></p>
+					<button class="btn btn-info btn-lg" id="restart"><span class="glyphicon glyphicon-refresh"></span>Play Again</button>
+				</div>
+				<div class="col-md-4">
+					<h2 id="opponent">Your opponent:</h2>
+					<div id="youropp"></div>
+					<p id="attacked">You were attacked back for <span id="attackedyoufor"></span> damage points!</p>
 				</div>
 			</div>
-		</div>
-		<div class="row">
-			<div class="col-md-4">
-				<h2 id="character">Your character:</h2>
-				<div id="yourchar"></div>
-				<p id="attacks">You attacked your opponent for <span id="youattackedfor">blank</span> damage points!</p>
-			</div>
-			<div class="col-md-4">
-				<button class="btn btn-danger btn-lg" id="attack"><span class="glyphicon glyphicon-fire"></span>   Attack   </button>
-				<p id="youwonlost"></p>
-				<button class="btn btn-info btn-lg" id="restart"><span class="glyphicon glyphicon-refresh"></span>Play Again</button>
-			</div>
-			<div class="col-md-4">
-				<h2 id="opponent">Your opponent:</h2>
-				<div id="youropp"></div>
-				<p id="attacked">You were attacked back for <span id="attackedyoufor">blank</span> damage points!</p>
-			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-md-12">
-				<h2 id='defarea'>Defeated Area</h2>
-				<hr>
+			<div class="row">
+				<div class="col-md-12">
+					<h2 id='defarea'>Defeated Area</h2>
+					<hr>
+				</div>
 			</div>
-		</div>
 
-		<div class="row">
-			<div class="col-md-4 opp1container">
-				<div class="opp1">
-				
-			  	</div>
-		  	</div>
-		  	<div class="col-md-4 opp2container">
-				<div class="opp2">
-					
-				</div>
-			</div>
-			<div class="col-md-4 opp3container">
-				<div class="opp3">
-					
+			<div class="row">
+				<div class="col-md-12" id="divdef">
+					<ul>
+						<li>
+							<div class="opp1container">
+								<div class="opp1">
+								
+							  	</div>
+						  	</div>
+					  	</li>
+					  	<li>
+						  	<div class="opp2container">
+								<div class="opp2">
+									
+								</div>
+							</div>
+						</li>
+						<li>
+							<div class="opp3container">
+								<div class="opp3">
+									
+								</div>
+							</div>
+						</li>
+					</ul>
 				</div>
 			</div>
 		</div>
-	</div>
-	
-	
-	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
-	<script type="text/javascript" src="assets/js/fireworks/jquery.fireworks.js"></script>
-	<script type ="text/javascript" src="assets/js/game.js"></script>
-</body>
+		
+		
+		<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+		<script type = "text/javascript" src = "https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.3/jquery-ui.min.js"></script>
+		<script type="text/javascript" src="assets/js/fireworks/jquery.fireworks.js"></script>
+		<script type ="text/javascript" src="assets/js/game.js"></script>
+	</body>
 </html>

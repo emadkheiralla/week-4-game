@@ -10,7 +10,7 @@ body{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
 	padding: 0;
 }
 
@@ -18,7 +18,7 @@ body{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
 	padding: 0;
 }
 
@@ -26,7 +26,7 @@ body{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
 	padding: 0;
 }
 
@@ -34,7 +34,7 @@ body{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
 	padding: 0;
 }
 
@@ -44,7 +44,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -54,7 +54,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -64,7 +64,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -74,7 +74,7 @@ body{
 	background-repeat: no-repeat;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -119,27 +119,51 @@ p.apwords{
 	height: 240px;
 }
 
-#opp1container{
+.opp1container{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
 	padding: 0;
 }
 
-#opp2container{
+.opp2container{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
 	padding: 0;
 }
 
-#opp3container{
+.opp3container{
 	position: relative;
 	width: 160px;
 	height: 220px;
-	margin: 15px;
+	margin-right: 20px;
+	padding: 0;
+}
+
+.opp1{
+	position: absolute;
+	width: 160px;
+	height: 220px;
+	margin: 0;
+	padding: 0;
+}
+
+.opp2{
+	position: absolute;
+	width: 160px;
+	height: 220px;
+	margin: 0;
+	padding: 0;
+}
+
+.opp3{
+	position: absolute;
+	width: 160px;
+	height: 220px;
+	margin: 0;
 	padding: 0;
 }
 
@@ -159,17 +183,17 @@ h2{
 }
 
 p#attacked{
-	color: red;
+	color: #ff8080;
 	padding-top: 20px;
 	font-size: 18px;
-	font-weight: bolder;
+	font-weight: bold;
     font-family: 'Oswald', sans-serif;
 
 }
 
 p#attacks{
-	color: green;
-	padding-top: 20px;
+	color: #00ff80;
+	padding-top: 22px;
 	font-size: 18px;
 	font-weight: bolder;
     font-family: 'Oswald', sans-serif;
@@ -194,4 +218,36 @@ span{
 
 #defarea{
 	text-align: center;
+}
+ul { 
+    display: block;
+    list-style-type: none;
+    margin-top: 1em;
+    margin-bottom: 1em;
+    margin-left: 0;
+    margin-right: 0;
+}
+
+li{
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+
+#divchars{
+	margin: 0;
+	padding: 0;
+}
+
+#divdef{
+	margin: 0;
+	padding: 0;
+}
+
+.col-md-4, .col-md-12{
+	padding: 0;
+}
+
+.choosecont{
+	height: 50px;
 }
